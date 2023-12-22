@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y \
   bc \
   bison \
   build-essential \
-  crossbuild-essential-armhf \
+  crossbuild-essential-arm64 \
   curl \
   flex \
   git-core \
