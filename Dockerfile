@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y \
   kmod
 
 # Cross compile for 32bit arm
-ENV CROSS_COMPILE=arm-linux-gnueabihf-
-ENV ARCH=arm
+ENV CROSS_COMPILE=aarch64-linux-gnu-
+ENV ARCH=arm64
 
 # Create working directory
 RUN mkdir -p /workdir
