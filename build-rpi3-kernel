@@ -25,9 +25,9 @@ done
 
 # Configure kernel
 if [[ -v "${ALLCONFIG}" ]]; then
-  make KCONFIG_ALLCONFIG="${KCONFIG_ALLCONFIG:-arch/arm/configs/bcm2709_defconfig}" ${ALLCONFIG}
+  make KCONFIG_ALLCONFIG="${KCONFIG_ALLCONFIG:-arch/arm/configs/bcm2711_defconfig}" ${ALLCONFIG}
 else
-  make "${DEFCONFIG:-bcm2709_defconfig}"
+  make "${DEFCONFIG:-bcm2711_defconfig}"
 fi
 
 # Store and print kernelrease
@@ -46,10 +46,10 @@ do
     INSTALL_MOD_PATH="${TMP_DEST}" make modules_install
 
     mkdir -p "${TMP_DEST}/boot/overlays"
-    cp arch/arm/boot/zImage "${TMP_DEST}/boot/kernel-${KERNEL_VERSION}.img"
-    cp arch/arm/boot/dts/*.dtb "${TMP_DEST}"/boot/
-    cp arch/arm/boot/dts/overlays/*.dtb* "${TMP_DEST}"/boot/overlays/
-    cp arch/arm/boot/dts/overlays/README "${TMP_DEST}"/boot/overlays/
+    cp arch/arm64/boot/Image "${TMP_DEST}/boot/kernel-${KERNEL_VERSION}.img"
+    cp arch/arm64/boot/dts/broadcom/*.dtb "${TMP_DEST}"/boot/
+    cp arch/arm64/boot/dts/overlays/*.dtb* "${TMP_DEST}"/boot/overlays/
+    cp arch/arm64/boot/dts/overlays/README "${TMP_DEST}"/boot/overlays/
 
     # Copy config.txt to /boot if it exists
     if [ -f platform/"${platform}"/config.txt ] ; then
