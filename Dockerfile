@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
   libssl-dev \
   kmod
 
-# Cross compile for 32bit arm
+# Cross compile for 64bit arm
 ENV CROSS_COMPILE=aarch64-linux-gnu-
 ENV ARCH=arm64
 
