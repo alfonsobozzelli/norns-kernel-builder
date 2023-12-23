@@ -36,7 +36,7 @@ KERNEL_VERSION=$(make kernelrelease | grep "^[6].")
 echo "Building kernel ${KERNEL_VERSION}"
 
 # Build everything
-make "${MAKEFLAGS}" zImage modules dtbs
+make "${MAKEFLAGS}" Image modules dtbs
 
 # Package for each platform
 for platform in $(cd platform && \ls -1d *)
